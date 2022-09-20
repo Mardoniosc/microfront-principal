@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmptyRouteComponent } from './empty-route/empty-route.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'content1',
+    children: [{ path: '**', component: EmptyRouteComponent }],
+  },
+  {
+    path: 'content2',
+    children: [{ path: '**', component: EmptyRouteComponent }],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
